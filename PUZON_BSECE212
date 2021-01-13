@@ -1,0 +1,129 @@
+# Application
+
+## Ask yourself:
+
+1. Why do you think Python is the most applicable programming language for scientific computing?
+
+    Python is great at scientific computing because it has the needed features for scientific computing
+    in which other programming languages might not have. Reasons are such as it has a very good I/O options,
+    Strong supporto for task automation, highly extensible language, and has bridges to other programs such as
+    MATLAB and Octave.
+
+
+2. If pyhton can build anything, where do you think Python is not applicable for?
+
+     I think python is not applicable for creating old legacy programs as python has the latest 
+     bells and whistles and it might not support old device such as old analog devices.
+    
+    
+Exercise 1: Mailing Address (Solved, 9 Lines)
+
+  Create a program that displays your name and complete mailing address. The address should be printed in the format that is normally used in the area where you live. Your program does not need to read any input from the user.
+  
+print ("John N. Puzon")
+print ("Department of Electronics Engineering")
+print ("USeP")
+print ("Obrero, Davao City")
+print ("Philippines")
+
+Exercise 2: Area of a Room(Solved, 13 lines)
+
+    Write a program that asks the user to to enter the width and length of a room. Once these values have been read, your program should compute and display the area of the room. 
+    The length and the width will be entered as floating-point numbers. Include units in your prompt and output message; either feet or meters, depending on which unit you are more comfortable working with.
+    
+#Compute the area of room 
+
+#read the dimensions from the user
+lenght =  float(input("Enter the lenght the room in ft"))
+width = float(input("Enter the width off the room in ft"))
+
+#Compute the area of the room
+area = lenght * width
+
+#display of result
+print("The area of the room is", area, "square feet")
+
+Exercise 3: Arithmetic (Solved, 22 lines)
+
+Create a program that reads two integers, a and b, from the user. Your program should
+compute and display:
+• The sum of a and b
+• The difference when b is subtracted from a
+• The product of a and b
+• The quotient when a is divided by b
+• The remainder when a is divided by b
+• The result of log10 a
+• The result of ab
+Hint: You will probably find the log10 function in the math module helpful
+for computing the second last item in the list.
+
+import math
+#Reading numbers from user
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+#Calculating and printing sum
+print(a,"+",b,"=",a+b)
+#Calculating and printing difference
+print(a,"-",b,"=",a-b)
+#Calculating and printing Quotient
+print(a,"/",b,"=",a/b)
+#Calculating and printing product
+print(a,"*",b,"=",a*b)
+#Calculating and printing remainder
+print(a,"%",b,"=",a%b)
+#Calculating and printing log10 a
+print ("math.log10(a) : ", math.log10(a))
+#Calculating and printing log10ab
+print ("math.log10(ab) : ", math.log10(a)+ math.log10(b))
+
+Exercise 4: Area and Volume (15 lines)
+Write a python program that begins by reading a radius, r, from the user.The program will continue by computing and displaying the area of a circle with radius r and the volume of a sphere with radius r 
+Use the value pi = 3.142 for your calculations.
+ # Read radius
+    radius = float(input("\nEnter the radius: "))
+    pi = 3.142
+    # Calculate area of the circle and volume of shpere
+    area_circle = pi * radius * radius
+    volume_sphere = 4/3 * pi * radius * radius * radius
+    # Display the result with radius
+    print("Area of the circle of radius",round(radius,2),"is:",round(area_circle,2))
+    print("Volume of the sphere of radius",round(radius,2),"is:",round(volume_sphere,2))
+    
+
+
+LESSON 2
+
+
+Application:
+
+Distance between Two Points on Earth (27 lines)
+
+    The surface of the Earth is curved, and the distance between degrees of longitude varies with latitude. As a result, finding the distance between two points on the surface of the Earth is more complicated than simply using the Pythagorean theorem. Let (t1, g1) and (t2, g2) be the latitude and longitude of two points on the Earth’s surface. 
+    The distance between these points, following the surface of the Earth, in kilometers is: distance = 6371.01 × arccos(sin(t1) × sin(t2) + cos(t1) × cos(t2) × cos(g1 − g2)) The value 6371.01 in the previous equation wasn’t selected at random. 
+    It is the average radius of the Earth in kilometers.
+    
+    import math
+#Function to calculate distnce
+def calcDistance(lat1,long1,lat2,long2):
+    return  6371.01*math.acos(math.sin(lat1) *math.sin(lat2) +math.cos(lat1)*math.cos(lat2)*math.cos(long1-long2))
+#Function to convert degree to radian
+def convertRadians(val):
+    return val*0.01745329252
+#Main function
+def main():
+    #Prompt for latitude ang longitude of point1
+    lattitude1=(float(input("Enter lattitude of point1: ")))
+    longitude1=(float(input("Enter longitude of point1: ")))
+    #Prompt for latitude ang longitude of point2
+    lattitude2=(float(input("Enter lattitude of point2: ")))
+    longitude2=(float(input("Enter longitude of point2: ")))
+    #Get radian values
+    lattitude1=convertRadians(lattitude1)
+    longitude1=convertRadians(longitude1)
+    lattitude2=convertRadians(lattitude2)
+    longittude2=convertRadians(longitude2)
+    #Display result
+    print('Distance between two points = %.4f kms'%calcDistance(lattitude1,longitude1,lattitude2,longitude2))
+#program starts here
+if __name__=="__main__":
+    main()
